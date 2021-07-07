@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const HomeScreen: FC<{ navigation: HomeScreenNavigationProp }> = ({ navigation }) => {
   return (
@@ -29,15 +30,15 @@ type NavigationStackParameters = {
 type HomeScreenNavigationProp = StackNavigationProp<NavigationStackParameters, 'Home'>;
 type DetailsScreenNavigationProp = StackNavigationProp<NavigationStackParameters, 'Details'>;
 
-const Stack = createStackNavigator<NavigationStackParameters>();
+const Tab = createBottomTabNavigator<NavigationStackParameters>();
 
 const App: FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name='Home' component={HomeScreen} />
-        <Stack.Screen name='Details' component={DetailsScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen name='Home' component={HomeScreen} />
+        <Tab.Screen name='Details' component={DetailsScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
