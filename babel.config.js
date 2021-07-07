@@ -8,6 +8,8 @@ module.exports = function (api) {
         {
           alias: {
             screens: './src/screens',
+            store: './src/redux/store',
+            slices: './src/redux/slices',
           },
         },
       ],
