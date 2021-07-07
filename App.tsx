@@ -3,7 +3,8 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Provider, useDispatch, useSelector } from 'react-redux';
+import { Provider as StoreProvider, useDispatch, useSelector } from 'react-redux';
+import { Provider as PaperProvider } from 'react-native-paper';
 import store, { AppDispatch } from 'store/index';
 import { AppState } from 'store/root.reducer';
 import { homeActions } from 'slices/home.slice';
@@ -44,14 +45,16 @@ const Tab = createBottomTabNavigator<NavigationStackParameters>();
 
 const App: FC = () => {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Tab.Navigator initialRouteName='Home'>
-          <Tab.Screen name='Home' component={HomeScreen} />
-          <Tab.Screen name='Details' component={DetailsScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <PaperProvider>
+      <StoreProvider store={store}>
+        <NavigationContainer>
+          <Tab.Navigator initialRouteName='Home'>
+            <Tab.Screen name='Home' component={HomeScreen} />
+            <Tab.Screen name='Details' component={DetailsScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </StoreProvider>
+    </PaperProvider>
   );
 };
 
