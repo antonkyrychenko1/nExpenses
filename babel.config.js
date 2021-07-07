@@ -7,9 +7,11 @@ module.exports = function (api) {
         'module-resolver',
         {
           alias: {
-            screens: './src/screens',
-            store: './src/redux/store',
-            slices: './src/redux/slices',
+            '@screens': './src/screens',
+            '@common': './src/common',
+            '@app': './App.tsx',
+            '@store': './src/redux/store',
+            '@slices': './src/redux/slices',
           },
         },
       ],
