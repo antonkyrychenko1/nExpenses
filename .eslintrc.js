@@ -18,5 +18,7 @@ module.exports = {
     'prettier',
     'plugin:prettier/recommended',
   ],
-  rules: {},
+  rules: {
+    'react/prop-types': 'off',
+  },
 };
