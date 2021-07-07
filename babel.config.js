@@ -6,11 +6,11 @@ module.exports = function (api) {
       [
         'module-resolver',
         {
-          "alias": {
-            'screens': './src/screens',
+          alias: {
+            screens: './src/screens',
           },
-        }
-      ]
-    ]
+        },
+      ],
+    ],
   };
 };
