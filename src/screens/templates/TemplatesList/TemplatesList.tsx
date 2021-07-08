@@ -10,7 +10,7 @@ const TemplatesList: FC = () => {
   return (
     <ScrollView>
       {templates.map((template) => (
-        <List.Item title={template.name} key={template.id} />
+        <List.Item title={template.name} key={template.id} left={(props) => <List.Icon {...props} icon='food' />} />
       ))}
     </ScrollView>
   );
