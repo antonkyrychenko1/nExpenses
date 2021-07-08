@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import commonStyles from '@common/styles';
-import { NavigationStackParameters } from '@app';
+import { NavigationParameters } from '@app';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@store/index';
 import { AppState } from '@store/root.reducer';
 import { expensesActions } from '@slices/exprenses.slice';
 import Expense from '@models/expense';
 import uuid from '@utils/uuid-gemerator';
+import { NavigationProp } from '@react-navigation/native';
 
-type HomeScreenNavigationProp = StackNavigationProp<NavigationStackParameters, 'Home'>;
+type HomeScreenNavigationProp = NavigationProp<NavigationParameters, 'Home'>;
 
 const HomeScreen: FC<{ navigation: HomeScreenNavigationProp }> = ({}) => {
   const [value, onChangeText] = React.useState('');
