@@ -40,13 +40,14 @@ const AddTemplateModal: FC = () => {
             value={expanseAmountText}
             onChangeText={(text) => {
               const amount = parseFloat(text);
-              if (!Number.isNaN(amount)) {
+              const amountIsNaN = Number.isNaN(amount);
+              if (!amountIsNaN) {
                 setExpanseAmount(amount);
               }
 
               setExpanseAmountText(text);
               setExpanseAmountError(
-                text ? (amount ? '' : 'Expanse Amount has invalid format') : 'Expanse Amount is required',
+                text ? (amountIsNaN ? 'Expanse Amount has invalid format' : '') : 'Expanse Amount is required',
               );
             }}
             error={!!expanseAmountError}
