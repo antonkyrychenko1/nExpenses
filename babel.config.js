@@ -12,6 +12,8 @@ module.exports = function (api) {
             '@app': './App.tsx',
             '@store': './src/redux/store',
             '@slices': './src/redux/slices',
+            '@models': './src/models',
+            '@utils': './src/utils',
           },
         },
       ],
